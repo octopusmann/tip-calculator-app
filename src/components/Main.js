@@ -26,7 +26,7 @@ export default function Main() {
 
     return tipAmounts.map((tip) => {
       return (
-        <div key={tip} className="tip-5" onClick={() => setTipPercentage(tip)}>
+        <div key={tip} className="tip-predefined-ones" onClick={() => setTipPercentage(tip)}>
           {tip}%
         </div>
       );
@@ -42,7 +42,7 @@ export default function Main() {
       </header>
 
       <div className="main-box">
-        <div className="wrapped-box">
+        <div className="left-column">
           <div className="bill-price">
             <label id="bill-label">Bill</label>
             <br />
@@ -60,15 +60,14 @@ export default function Main() {
 
           <div className="tip-selection">
             {tipSelectionRendered()}
-            <div className="tip-custom">
               <input
+                className="tip-custom"
                 type="text"
                 value={tipPercentage}
                 onChange={(event) =>
                   setTipPercentage(event.target.value)
                 }
               />
-            </div>
           </div>
 
           <div className="people-amount">
@@ -84,6 +83,7 @@ export default function Main() {
               setPersonCount(value);
             }}
           />
+        </div>
 
           <div class="right-column">
             <div className="tip-result">
@@ -127,7 +127,6 @@ export default function Main() {
               </button>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );
